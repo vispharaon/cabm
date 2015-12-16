@@ -1,0 +1,79 @@
+<div style="padding-left:20px; padding-right:20px">
+    <a href="#/cabNew" alt="Novi Cab"><img ng-src="{{cabImages.imageNewCAB}}" alt="{{cabImages.altNewCAB}}"  height="42" width="42" /></a>
+</div>
+<br />
+
+<!--div class="tableHeader">
+    <div class="row session">
+        <div class="pixoutlined">
+            <div class="outlined">
+                <span align="left" style="height:100px"><strong>CAB HD No</strong></span>
+                <span align="left" style="height:40px"><strong>Naziv</strong></span>
+                <span align="left" style="height:50px"><strong>Tip</strong></span>
+                <span align="left"  style="height:90px"><strong>Posiljaoc</strong></span>
+                <span align="left" style="height:40px"><strong>Prioritet</strong></span>
+                <span align="left" style="height:40px"><strong>Datum</strong></span>
+            </div>
+        </div>        
+    </div>
+</div -->
+<div>
+
+    <!--li ng-repeat="cab in allCabs | limitTo: filterCABShow"  ng-click="openCharacterDetails()" >
+         <div class="tableRows">
+            <div class="row session">
+                <div class="pixoutlined">
+                    <div class="outlined">
+                        <span align="left">{{cab.CAB_HD_No}}</span>
+                        <span align="left">{{cab.CAB_HD_Title}}</span>
+                        <span align="left">{{cab.CAB_Type}}</span>
+                        <span align="left">{{cab.CAB_Sender}}</span>
+                        <span align="left">{{cab.CAB_Priority}}</span>
+                        <span align="left">{{cab.CAB_HD_Date}}</span>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </li -->
+
+<table class="table table-hover"  >
+  <thead>
+    <tr>
+      <th>CAB HD No</th>
+      <th>Naziv</th>
+      <th>Tip</th>
+      <th>Posiljaoc</th>
+      <th>Prioritet</th>
+      <th>Datum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="cab in allCabs | limitTo: filterCABShow"  ng-click="openCharacterDetails()">
+      <td>{{cab.CAB_HD_No}}</td>
+      <td>{{cab.CAB_HD_Title}}</td>
+      <td>{{cab.CAB_Type}}</td>
+      <td>{{cab.CAB_Sender}}</td>
+      <td>{{cab.CAB_Priority}}</td>
+      <td>{{cab.CAB_HD_Date}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+    <br />
+
+</div>
+
+<!--div>
+    <h1>Hi {{vm.user.firstName}}!</h1>
+    <p>You're logged in!!</p>
+    <h3>All registered users:</h3>
+    <ul>
+        <li ng-repeat="user in vm.allUsers">
+            {{user.username}} ({{user.firstName}} {{user.lastName}})
+            - <a href="#" ng-click="vm.deleteUser(user.id)">Delete</a>
+        </li>
+    </ul>
+    <p>&nbsp;</p>
+    <p><a href="#/login" class="btn btn-primary">Logout</a></p>
+</div -->

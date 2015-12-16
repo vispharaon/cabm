@@ -1,0 +1,92 @@
+     body {
+        padding-top: 0px; 
+        padding-left: 50px;
+        padding-right: 50px;
+      }
+
+ul.bodyUl {
+    list-style: none;
+    margin: 0;
+padding: 0;
+border: inset;
+
+}
+
+li.bodyLi {
+    list-style: none;
+    /*display: inline;
+    border-bottom:outset;
+    padding-top: 20px;*/
+}
+
+.outlined {
+  outline: 2px solid grey;
+  background: transparent;
+}
+
+.pixoutlined {
+outline: 1px solid silver;
+}
+
+tr:hover {
+    background: #EEE;
+}
+li {
+
+    list-style-type: none;
+    padding: 6px 10px;
+}
+
+li:hover {
+    background: #EEE;
+}
+
+.animate-show {
+    -webkit-transition: all linear 0.5s;
+    transition: all linear 0.5s;
+    opacity: 1;
+}
+
+.animate-show.ng-hide-add,
+.animate-show.ng-hide-remove {
+    display: inline-block !important;
+}
+.animate-show.ng-hide {
+    opacity: 0;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak{
+  display: none;
+}
+
+.blue{
+  color:blue;
+}
+
+.gridStyle {
+    border: 1px solid rgb(212,212,212);
+    width: 400px; 
+    height: 300px
+}
+
+.ng-table {
+    border: 1px solid #000;
+}
+
+input, textarea, select, button {
+  width : 150px;
+  margin: 0;
+
+  -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+          box-sizing: border-box;
+}
+
+label {
+  width : 250px;
+  margin: 0;
+
+  -webkit-box-sizing: border-box; /* For legacy WebKit based browsers */
+     -moz-box-sizing: border-box; /* For legacy (Firefox <29) Gecko based browsers */
+          box-sizing: border-box;
+}

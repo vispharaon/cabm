@@ -1,0 +1,137 @@
+<div>
+	<div class="container-fluid" align="right" >
+		<li>
+			<div class="container-fluid">
+				<h4><label>Status: </label><input class='text' ng-model='cabMainDetails.cabstatus'></input></h4>
+			</div>
+		</li>
+	</div>
+
+	<div class="container-fluid" >
+		<form class="pure-form pure-form-aligned" name="myForm">
+			<ul class="nav navbar-nav">
+				<li>
+					<fieldset>		
+						<div class="pure-control-group"><strong><label>CAB HD No:</label></strong><input class="text" ng-model="cabMainDetails.CAB_HD_No"></input></div><br /> 
+						<div class="pure-control-group"><strong><label>CAB Tip:</label></strong><select class="text" ng-model="cabMainDetails.CAB_Type" ng-options="val for val in getCABTypes()"><option value="">Select</option></select></div><br />
+						<div class="pure-control-group"><strong><label>CAB Naziv:</label></strong><input class="text" ng-model="cabMainDetails.CAB_HD_Title"></input></div><br />
+						<div class="pure-control-group"><strong><label>CAB Pošiljaoc:</label></strong><select class="text" ng-model="cabMainDetails.CAB_Sender" ng-options="val for val in getCABSenders()"><option value="">Select</option></select></div><br />
+						<div class="pure-control-group"><strong><label>CAB Prioritet:</label></strong><select class="text" ng-model="cabMainDetails.CAB_Priority" ng-options="val for val in getCABPriorities()"><option value="">Select</option></select></div><br />
+						<div class="pure-control-group"><strong><label>CAB IT Odjel:</label></strong><select class="text" ng-model="cabMainDetails.CAB_Department"  ng-options="val for val in getCABITDepartments()"><option value="">Select</option></select></div><br />
+						<div class="pure-control-group"><strong><label>CAB Datum:</label></strong><input type="text" ng-model="cabMainDetails.CAB_HD_Date | date: 'dd.MM.yyyy'"></input></div><br />
+						<div class="pure-button pure-button-primary"><input type="submit" value="Izmjeni"></input></div>
+						<br />Test: <input class="text"  ng-model='cabMainDetails.Developer_Comment'></input>
+					</fieldset>
+				</li>
+			</ul>
+		</form>
+	</div>
+
+	<div class="container-fluid">
+		<li>
+			<div class="container-fluid"  ng-click="voteClick()" >
+				<h3><label>Voting</label></h3>
+				<img align='right' ng-src='{{voteImageYesNo()}}' height="42" width="42" />
+				<div ng-show="showVoting">
+					<span><strong><label>Voter Ime:</label></strong><input class="text" ng-model="cabVoteDetails.votename"></input></span><br />
+					<span><strong><label>Voter Prezime:</label></strong><input class="text" ng-model="cabVoteDetails.votelastname"></input></span><br />
+					<span><strong><label>Datum Vote-a:</label></strong><input class="text" ng-model="cabVoteDetails.votedate"></input></span><br />
+				</div>
+			</div>
+		</li>
+	</div>
+
+	<div class="container-fluid">
+		<li>
+			<div class="container-fluid" ng-click="analyzeClick()">
+				<h3><label>Analysis</label></h3>
+				<img align='right' ng-src='{{analyzeImageYesNo()}}' height="42" width="42" />
+				<div ng-show="showAnalysis">
+					<span><strong><label>Analyzer Ime:</label></strong><input class="text" ng-model="cabAnalyzeDetails.analyzename"></input></span><br />
+					<span><strong><label>Analyzer Prezime:</label></strong><input class="text" ng-model="cabAnalyzeDetails.analyzelastname"></input></span><br />
+					<span><strong><label>Predviđeni sati za izradu CAB zahtjeva:</label></strong><input class="text" ng-model="cabAnalyzeDetails.analyzepredictedwh"></input></span><br />
+					<span><strong><label>Note Analyzera:</label></strong><input class="text" ng-model="cabAnalyzeDetails.analyzenote"></input></span><br />
+				</div>
+			</div>
+		</li>
+	</div>
+
+	<div class="container-fluid"  >
+		<li>
+			<div class="container-fluid" ng-click="taskingClick()">
+				<h3><label>Tasking</label></h3>
+				<img align='right' ng-src='{{taskingImageYesNo()}}' height="42" width="42" />
+				<div ng-show="showTasking">
+					<span><strong><label>Tasker Ime:</label></strong><input class="text" ng-model="cabTaskingDetails.taskingename"></input></span><br />
+					<span><strong><label>Tasker Prezime:</label></strong><input class="text" ng-model="cabTaskingDetails.taskinglastname"></input></span><br />
+					<span><strong><label>Tasker Sati:</label></strong><input class="text" ng-model="cabTaskingDetails.taskinghours"></input></span><br />
+					<span><strong><label>Broj Taskova:</label></strong><input class="text" ng-model="cabTaskingDetails.taskingnooftask"></input></span><br />
+					<a href="tasking.html">Taskovi - Detalji</a>
+				</div>
+			</div>
+		</li>
+	</div>
+	<div class="container-fluid">
+		<li>
+			<div class="container-fluid" ng-click="codereviewClick()">
+				<h3><label>Code Review</label></h3>
+				<img align='right' ng-src='{{codereviewImageYesNo()}}' height="42" width="42" />
+				<div ng-show="showCodeReview">
+					<span><strong><label>Code Review Urađen</label></strong><input type='checkbox'class="text" ng-model="cabCodeReviewDetails.codereviewdone" disabled></input></span><br />
+					<span><strong><label>Tasker Uradio CR:</label></strong><input class="text" ng-model="cabCodeReviewDetails.codereviewtasker"></input></span><br />
+				</div>
+			</div>
+		</li>
+	</div>
+	<div class="container-fluid" >
+		<li>
+			<div class="container-fluid" ng-click="unittestClick()">
+				<h3><label>Unit Tests</label></h3>
+				<img align='right' ng-src='{{unittestImageYesNo()}}' height="42" width="42" />
+				<div ng-show="showUnitTest">
+					<span><strong><label>Unit Test Urađen</label></strong><input type='checkbox'class="text" ng-model="cabUnitTestDetails.unittestdone" disabled></input></span><br />
+					<span><strong><label>Developeri Uradili UT</label></strong>
+					<ul><li class="text" ng-repeat="developer in cabUnitTestDetails.unittestdevelopers" ng-show="showUnitTest">{{developer.name}}</li></span><br /></ul>
+				</div>
+			</div>
+		</li>
+	</div>
+	<div class="container-fluid" >
+		<li>
+			<div class="container-fluid" ng-click="testingClick()">
+				<h3><label>Testing</label></h3>
+				<img align='right' ng-src='{{testingImageYesNo()}}' height="42" width="42" />
+				<div ng-show="showTesting">
+					<span><strong><label>QA Validacija Zavrsena:</label></strong><input type="checkbox" ng-model="cabTestingDetails.qavalidationdone"></input></span><br />
+					<span><strong><label>Datum Validacije:</label></strong><input ng-model="cabTestingDetails.qavalidationdate"></input></span><br />
+					<span><strong><label>QA Testiranje Zavrseno:</label></strong><input type="checkbox" ng-model="cabTestingDetails.qatestingdone"></input></span><br />
+					<span><strong><label>Datum Zavrsetka Testiranja:</label></strong><input ng-model="cabTestingDetails.qatestingdate"></input></span><br />
+					<span><strong><label>Business Testiranje Zavrseno:</label></strong><input type="checkbox" ng-model="cabTestingDetails.businesstestingdone"></input></span><br />
+					<span><strong><label>Datum Završetka Biznis Testiranja:</label></strong><input ng-model="cabTestingDetails.businesstestingdate"></input></span><br />
+					<span><strong><label>Komentari Testiranja</label></strong>
+						<ul><li ng-repeat="comment in cabTestingDetails.comments" ng-show="showTesting">
+							{{comment.testingname}}
+							{{comment.testingcomment}}
+							{{comment.dateofcomment}}
+						</li></span><br /></ul>					
+				</div>
+			</div>
+		</li>
+	</div>
+	<div class="container-fluid">
+		<li>
+			<div class="container-fluid" ng-click="developingClick()">
+				<h3><label>Developing</label></h3>
+				<img align='right' ng-src='{{developingImageYesNo()}}' height="42" width="42" />
+				<div ng-show="showDeveloping">
+						<ul><li ng-repeat="task in cabDevelopingDetails.tasks" ng-show="showDeveloping">
+							{{task.taskname}}
+							{{task.taskdeveloper}}
+							{{task.taskstatus}}
+							{{task.datelastchange}}
+						</li></span><br /></ul>					
+				</div>
+			</div>
+		</li>
+	</div>
+</div>

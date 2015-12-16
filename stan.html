@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title>Stanovi</title>
+	<link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/ui-grid.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>	
+  <link rel="stylesheet" href="css/jquery-ui.min.css"/> 
+  <link rel="stylesheet" href="css/jquery-ui.structure.min.css"/> 
+  <link rel="stylesheet" href="css/jquery-ui.theme.min.css"/> 
+  <link rel="stylesheet" href="css/jquery.dataTables.min.css"/> 
+  <link rel="stylesheet" href="css/bootstrap-dataTables.css"/> 
+    
+</head>
+
+<body ng-Cloak>
+  <div ng-controller="IndexController">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="stan.html">Stanovi</a>
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+</div>
+
+<div class="container" ng-controller="IndexController">
+<a id="top"></a>      
+<ul class="nonType">
+   <li ng-repeat="stan in allStans | orderBy: '-points'" >
+         <div  class="tableRows divBorder">
+            <div class="row session">
+                <div class="pixoutlined">
+                    <div class="outlined">
+                        <button class="label-info"  ng-click="openStan()">Otvori Stan</button><br>
+                        <span class="width30 badge" align="left">{{stan.lokacija}}</span>
+                        <span class="width30 badge" align="left">{{stan.namjesten}}</span>
+                        <span class="width30 badge" align="left">{{stan.brojSoba}}</span>
+                        <span class="width30 badge" align="left">{{stan.telefon}}</span>
+                        <span class="width30 badge" align="left">{{stan.email}}</span>
+                        <span class="width30 badge" align="left">{{stan.cijena}}</span>
+                        <span class="width30 badge" align="left">{{stan.dodatnoOpis}}</span>
+                        <span class="width30 badge" align="left">{{stan.grijanje}}</span>
+                        <span class="width30 badge" align="left">{{stan.balkon}}</span>
+                        <span class="width30 badge" align="left">{{stan.kucaZgrada}}</span>
+                        <button class="alignRight label-warning" ng-click="deleteStan()">X</button>
+                        <span class="alignRight badge" align="right">{{stan.points}}</span>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </li>
+</ul>
+
+    <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.lokacija" ng-model="stan.id" ng-show="idShow"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.lokacija" ng-model="stan.lokacija"></input>
+              </div>
+              <!--label>Naziv: </label-->
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.namjesten" ng-model="stan.namjesten"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.brojSoba" ng-model="stan.brojSoba"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.telefon" ng-model="stan.telefon"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.email" ng-model="stan.email"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.cijena" ng-model="stan.cijena"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.dodatnoOpis" ng-model="stan.dodatnoOpis"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.grijanje" ng-model="stan.grijanje"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.balkon" ng-model="stan.balkon"></input>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="stan.kucaZgrada" ng-model="stan.kucaZgrada"></input>
+              </div>
+              <div class="form-group">
+                <input  class="btn btn-primary" type="button" value="Azuriraj podatke za odabrani stan" ng-click="updateStan()"></input>
+                <input  class="btn btn-primary" type="button" value="Dodaj novi stan" ng-click="addStan()"></input>
+              </div>
+              <a id="bottom"></a>
+      </form>
+</div>
+
+<!-- div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+    </div -->
+
+</div>
+	<script src="lib/jquery-2.1.4.min.js"></script>
+ 	<script src="lib/bootstrap.min.js"></script>
+ 	<script src="lib/angular/angular.js"></script>	
+ 	<script src="lib/angular/angular-sanitize.js"></script>
+	<script src="lib/angular/angular-route.js"></script>
+	<script src="lib/angular/angular-cookies.js"></script>	
+  <script src="lib/angular/angular-resource.js"></script>
+  <script src="lib/ng-table.js"></script>
+  <script src="lib/jquery-ui.min.js"></script>  
+  <script src="lib/jquery.dataTables.min.js"></script>  
+ 	
+  <script src="js/app.js"></script>      
+  
+  <script src="js/services/AuthenticationService.js"></script>
+  <script src="js/services/UserService.js"></script>
+  <script src="js/services/FlashService.js"></script>
+  <script src="js/services/CabData.js"></script>
+  <script src="js/services/StansResource.js"></script>
+
+  <script src="js/controllers/LoginController.js"></script>
+  <script src="js/controllers/HomeController.js"></script>
+  <script src="js/controllers/RegisterController.js"></script>  
+  <script src="js/controllers/IndexController.js"></script>
+  <script src="js/controllers/CabController.js"></script>
+  <script src="js/controllers/NewCabController.js"></script>
+
+  <script src="js/app/jqueryScript.js"></script>
+
+</body>
+</html>

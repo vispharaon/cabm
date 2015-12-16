@@ -1,0 +1,63 @@
+.width30 { 
+    width: 30%;
+}
+
+.divBorder{
+	border-radius: 25px;
+    border: 2px solid #157DEC;
+    padding: 20px;    
+}
+
+.nonType{
+	list-style-type: none;
+}
+
+.divPaddingBottom{
+	padding-bottom: 100px;
+}
+
+.menuButtonSize{
+	width: 100%;
+}
+
+.borderMenuSize{
+	width: 35%;	
+}
+
+.controlShadow{
+	box-shadow: 7px 7px 5px grey;
+}
+
+.spaceHeight{
+	height: 5px;
+}
+
+.fontWeightBold{
+	font-weight: bold;
+}
+
+.menuButtonDev{
+	width: 100%;
+	font-weight: bold;
+	font-size: 180%;
+}
+
+.label-as-badge {
+    border-radius: 1em;
+}
+
+.alignRight{
+	float: right;
+}
+
+.textareaCustom{
+	border: 2px solid #765942;
+	border-radius: 10px;
+	width: 100%;
+	height: 100px;
+}
+
+.height100px{
+	height: 50px;
+}
+
