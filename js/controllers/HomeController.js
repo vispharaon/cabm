@@ -45,7 +45,7 @@
             altNewCAB: 'Dodaj Novi CAB'           
         }
 
-        CabData.getAllCABAPI(function(cabs){
+       CabData.getAllCABAPI(function(cabs){
           $scope.allCabs = cabs;
         });
 

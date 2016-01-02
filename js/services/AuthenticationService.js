@@ -18,29 +18,43 @@
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
-            $timeout(function () {
-                var response;
-                UserService.GetByUsername(username)
-                    .then(function (user) {
-                        if (user !== null && user.password === password) {
-                            response = { success: true };
-                        } else {
-                            response = { success: false, message: 'Username or password is incorrect' };
-                        }
-                        callback(response);
-                    });
-            }, 1000);
+            //$timeout(function () {
+            //    var response;
+            //    UserService.GetByUsername(username)
+            //        .then(function (user) {
+            //            if (user !== null && user.password === password) {
+            //                response = { success: true };
+            //            } else {
+            //                response = { success: false, message: 'Username or password is incorrect' };
+            //            }
+            //            callback(response);
+            //        });
+            //}, 1000);
 
             /* Use this for real authentication
              ----------------------------------------------*/
-            //$http.post('/api/authenticate', { username: username, password: password })
-            //    .success(function (response) {
-            //        callback(response);
-            //    });
+           /* $http.post('http://cabapis.azurewebsites.net/api/user', { username: username, password: password })
+                .success(function (response) {
+                    callback(response);
+                });*/
+            $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapis.azurewebsites.net/api/user', params: { username: username, password: password }}).
+                    //$http({ method: 'GET', dataType: 'jsonp', url: 'http://localhost:56798/api/cab' }).
+                       success(function (data, status, headers, config) {
+                        console.log(data, status, headers, config);
+                            callback(status, data);
+                       }).
+                       error(function (data, status, headers, config) {
+                           // called asynchronously if an error occurs
+                           // or server returns response with an error status.
+                           console.log(data, status, headers, config);
+                           callback(status, data);
+                           //$log.warn(data, status, headers, config);
+                        
+                       });    
 
         }
 
-        function SetCredentials(username, password) {
+        function SetCredentials(user_id, username, password, isAdmin, isExternal) {
             var authdata = Base64.encode(username + ':' + password);
 
             $rootScope.globals = {

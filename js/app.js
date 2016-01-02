@@ -5,8 +5,8 @@ var app = angular
 					.config(config)
 					.run(run);
 
-config.$inject = ['$routeProvider', '$locationProvider'];
-function config($routeProvider, $locationProvider){
+config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider'];
+function config($routeProvider, $locationProvider, $httpProvider){
 	$routeProvider
 		.when('/', {
 			controller: 'HomeController',

@@ -5,15 +5,18 @@
 
 <div>
 <!--  Potrebno dodati nove tagove za tabelu-->
-  <table class="table table-hover"  >
+  <table class="table table-hover">
     <thead>
       <tr>
         <th>CAB HD No</th>
         <th>Naziv</th>
         <th>Tip</th>
+        <th>Datum</th>        
         <th>Posiljaoc</th>
         <th>Prioritet</th>
-        <th>Datum</th>
+        <th>Odjel</th>
+        <th>Status</th>
+        <th width='200px'>Datum izmjene statusa</th>
       </tr>
     </thead>
     <tbody>
@@ -21,9 +24,12 @@
         <td>{{cab.CAB_HD_No}}</td>
         <td>{{cab.CAB_HD_Title}}</td>
         <td>{{cab.CAB_Type}}</td>
+        <td>{{cab.CAB_HD_Date | date}}</td>
         <td>{{cab.CAB_Sender}}</td>
         <td>{{cab.CAB_Priority}}</td>
-        <td>{{cab.CAB_HD_Date}}</td>
+        <td>{{cab.CAB_Department}}</td>
+        <td>{{cab.StatusName}}</td>
+        <td>{{cab.StatusDate | date}}
       </tr>
     </tbody>
   </table>

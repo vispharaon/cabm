@@ -60,21 +60,19 @@
               </ul>
             </li>
           </ul>
-
-
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
 </div>
 
-<div class="jumbotron">
-    <div class="container">
-        <div class="col-sm-8 col-sm-offset-2">
+<!--div class="jumbotron" -->
+    <!-- div class="container" -->
+        <div class="col-sm-10 col-sm-offset-1">
             <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
             <div ng-view></div>
         </div>
-    </div>
-</div>
+    <!--/div-->
+<!--/div-->
 
 </div>
 	<script src="lib/jquery-2.1.4.min.js"></script>

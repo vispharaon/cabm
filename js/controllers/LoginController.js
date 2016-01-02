@@ -17,13 +17,14 @@
 
         function login() {
             vm.dataLoading = true;
-            AuthenticationService.Login(vm.username, vm.password, function (response) {
-                if (response.success) {
-                    AuthenticationService.SetCredentials(vm.username, vm.password);
+            AuthenticationService.Login(vm.username, vm.password, function (response, data) {
+                console.log(response);
+                if (response == "200") {
+                    AuthenticationService.SetCredentials(data.User_Id, vm.username, vm.password, data.isAdmin, data.isExternal);
                     //vm.navShow = true;
                     $location.path('/');
                 } else {
-                    FlashService.Error(response.message);
+                    FlashService.Error(data.Message);
                     vm.dataLoading = false;
 
                 }

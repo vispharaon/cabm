@@ -2,9 +2,13 @@
 
 app.factory('CabData',
 		function ($http, $log) {
+			var serverName = "http://cabapis.azurewebsites.net";
+			var apiType = "/api/";
+			
 			return{
 				getAllCABAPI: function(cabs){
-	                $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapi.somee.com/api/cab' }).
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'cab' }).
+	                //$http({ method: 'GET', dataType: 'jsonp', url: 'http://localhost:56798/api/cab' }).
 	                   success(function (data, status, headers, config) {
 	                       // this callback will be called asynchronously
 	                       // when the response is available
@@ -25,7 +29,7 @@ app.factory('CabData',
 	                   });
             	},
             	getCabAPI: function (successcb) {
-                $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapi.somee.com/api/cab'}).
+                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'cab'}).
                    success(function (data, status, headers, config) {
                        // this callback will be called asynchronously
                        // when the response is available
