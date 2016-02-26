@@ -61,3 +61,40 @@
 	height: 50px;
 }
 
+.myForm{
+	width: 100%;
+}
+
+td {
+	cursor: pointer;
+}
+
+fieldset {
+	border:1px solid green;	
+ }
+
+fieldset input {
+	position: relative;
+	left: 50px;
+}
+
+fieldset select {
+	position: relative;
+	left: 50px;
+}
+
+legend {
+  
+  border:1px solid green;
+  color:green;
+  font-size:10px;
+  text-align:left;
+  }
+
+label {
+  float:left;
+  width:25%;
+
+  text-align:left;
+  font-weight:bold;
+  }

@@ -97,7 +97,38 @@ app.factory('CabData',
 		                {taskname: 'Testni task 1', taskdeveloper: 'Amar Hajro', taskstatus: 'Development Done', tasklastchange: '17.04.2015' },
 		                {taskname: 'Testni task 2', taskdeveloper: 'Amar Hajro', taskstatus: 'Scheduled', tasklastchange: '17.04.2015' }    
 		              ]
-		            }/*,		            
+		            },
+		            saveNewCAB: function(cab){
+		            	console.log(serverName + apiType + 'cab');
+	                $http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'cab', data: JSON.stringify(cab), headers: {'Content-Type': "application/json"} }).
+	                   success(function (data, status, headers, config) {
+	                       // this callback will be called asynchronously
+	                       // when the response is available
+	                       //successcb(data);
+	                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;
+	                       //console.log(data[0].lokacija, data[0].namjesten, data[0].brojSoba, data[0].telefon, data[0].email, 
+	                        //data[0].cijena, data[0].dodatnoOpis, data[0].grijanje, data[0].balkon, data[0].kucaZgrada);
+	                       //$log.warn(data, status, headers, config);
+	                        //stanovi(data);
+	                       //return data[0];
+	                       console.log('success');	                       
+	                       console.log(status);
+	                       window.location = '#/';
+	                       return status;
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       console.log(status);
+	                       console.log(headers);
+	                       console.log(config);
+	                       return status;
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+            		}
+		            /*,		            
 		            getAllStanovi: function(stanovi){
 	                $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapi.somee.com/api/stan' }).
 	                   success(function (data, status, headers, config) {
