@@ -28,6 +28,6 @@
                     vm.dataLoading = false;
 
                 }
-            });
+            });            
         };
     }

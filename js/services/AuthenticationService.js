@@ -9,6 +9,7 @@
         var service = {};
 
         service.Login = Login;
+        service.LoginDeveloper = LoginDeveloper;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
 
@@ -50,6 +51,23 @@
                            callback(status, data);
                            //$log.warn(data, status, headers, config);
                         
+                       });    
+
+        }
+
+        function LoginDeveloper(username, callback) {
+
+            $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapis.azurewebsites.net/api/userDeveloper', params: { username: username }}).
+                       success(function (data, status, headers, config) {
+                        console.log(data, status, headers, config);
+                            callback(status, data);
+                       }).
+                       error(function (data, status, headers, config) {
+                           // called asynchronously if an error occurs
+                           // or server returns response with an error status.
+                           console.log(data, status, headers, config);
+                           callback(status, data);
+                           //$log.warn(data, status, headers, config);                        
                        });    
 
         }

@@ -21,6 +21,13 @@ function config($routeProvider, $locationProvider, $httpProvider){
 			controllerAs: 'vm'
 		})
 
+		.when('/developerLogin', {
+			controller: 'LoginDeveloperController',
+			templateUrl: 'partials/loginDevelopers.view.html',
+			controllerAs: 'vm'
+		})
+		
+
 		.when('/register', {
 			controller: 'RegisterController',
 			templateUrl: 'partials/register.view.html',
@@ -38,7 +45,7 @@ function config($routeProvider, $locationProvider, $httpProvider){
 			controllerAs: 'vm'
 		})
 
-		.otherwise({ redirectTo: '/onePage.html' });
+		.otherwise({ redirectTo: '/' });
 }
 
 run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
@@ -51,10 +58,14 @@ function run($rootScope, $location, $cookieStore, $http){
 
 	$rootScope.$on('$locationChangeStart', function (event, next, current){
 		// redirect to login page if not logged in and trying to access a restricted page
-		var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
+		var restrictedPage = $.inArray($location.path(), ['/login', '/register', '/developerLogin']) === -1;
 		var loggedIn = $rootScope.globals.currentUser;
+		console.log('amar-amar');
 		if(restrictedPage && !loggedIn){
-			$location.path('/login');
+			if($location.path().indexOf('/developerLogin') > -1)
+				$location.path('/developerLogin');
+			else					
+				$location.path('/login');
 		}
 	});
 }
