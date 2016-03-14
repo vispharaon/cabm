@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./css/jquery-ui.structure.min.css">
+		<link rel="stylesheet" href="./css/jquery-ui.theme.min.css">
+		<link rel="stylesheet" href="./css/jquery-ui.min.css">
+		<link rel="stylesheet" href="./css/app.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+	<body>
+	
+		<div class="container divBorder">		
+			<div>				
+				<span id="infoNewDeveloperEmpty" class="form-control">					
+					<i id="iHide" class="glyphicon glyphicon-menu-down"></i>
+					 
+				</span>
+				<span id="infoNewDeveloper" class="form-control">					
+					<i id="iShow" class="glyphicon glyphicon-menu-right"></i>
+					Unesi novog developera
+				</span>
+			</div>
+			
+			<form id="formShowHide">
+				<div class="form-group">
+					<div class="span2">
+						<span class="label label-info">Unesi novog developera</span>						
+					</div>
+				</div>
+				<div class="form-group">
+					<!--label for="exampleInputEmail1">Broj CAB zahtjeva: </label-->
+					<input type="text" class="form-control width30" placeholder="Developer ID"></input>
+				</div>
+				<!--label>Naziv: </label-->
+				<div class="form-group">
+					<input type="text" class="form-control width30" placeholder="Ime"></input>
+				</div>
+				<div class="form-group">
+					<input type="text" class="form-control width30" placeholder="Prezime"></input>
+				</div>
+				<div class="form-group">
+				<!--label>Tip: </label-->
+					<select class="form-control width30" ><option>--Node--</option><option>Razvoj</option></select>
+				</div>
+				<div class="checkbox">
+					<label>
+					  <input type="checkbox"> Voter
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+					  <input type="checkbox"> Analyzer
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+					  <input type="checkbox"> Tasker
+					</label>
+				</div>
+				<div class="checkbox">
+					<label>
+					  <input type="checkbox"> Developer
+				    </label>
+				</div><div class="checkbox">
+					<label>
+					  <input type="checkbox"> Tester
+					</label>
+				</div>				
+						
+				<div class="form-group">
+					<input  class="btn btn-primary" type="button" value="Dodaj novog developera"></input>
+				</div>
+				
+			</form>
+		<div class="container">
+		
+		<script src=".\js\jquery-2.1.4.min.js"></script>
+		<script src=".\js\bootstrap.min.js"></script>
+		<script src=".\js\jquery-ui.min.js"></script>		
+		<script src=".\app\jqueryScript.js"></script>
+		
+	</body>
+</html>
