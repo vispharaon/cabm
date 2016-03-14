@@ -6,30 +6,32 @@
 
     LoginDeveloperController.$inject = ['$location', 'AuthenticationService', 'FlashService'];
     function LoginDeveloperController($location, AuthenticationService, FlashService) {
-        var vm = this;
+        var vmd = this;
 
-        vm.login = loginDevelopers;
+        vmd.loginDevelopers = loginDevelopers;
+
         //vm.navShow = false;
         (function initController() {
-            console.log('login developers reset');
             // reset login status
+            console.log('after credentials are clearing...');
             AuthenticationService.ClearCredentials();
+            console.log('after credentials are cleared');
         })();
 
         function loginDevelopers() {
-            console.log('..' + vm.username);
-            vm.dataLoading = true;        
-            vm.password = '-';
-            AuthenticationService.LoginDeveloper(vm.username, function (response, data) {
+            console.log('..Amar');
+            vmd.dataLoading = true;        
+            vmd.password = '-';
+            AuthenticationService.LoginDeveloper(vmd.username, function (response, data) {
                 //console.log(response);
                 if (response == "200") {
-                    console.log('..' + vm.username);
-                    AuthenticationService.SetCredentials(data.User_Id, vm.username, vm.password, data.isAdmin, data.isExternal);
+                    console.log('..' + vmd.username);
+                    AuthenticationService.SetCredentials(data.User_Id, vmd.username, vmd.password, data.isAdmin, data.isExternal);
                     //vm.navShow = true;
-                    $location.path('/');
+                    $location.path('/developerHome');
                 } else {
                     FlashService.Error(data.Message);
-                    vm.dataLoading = false;
+                    vmd.dataLoading = false;
                 }
             });
         };

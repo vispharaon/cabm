@@ -24,7 +24,7 @@ function config($routeProvider, $locationProvider, $httpProvider){
 		.when('/developerLogin', {
 			controller: 'LoginDeveloperController',
 			templateUrl: 'partials/loginDevelopers.view.html',
-			controllerAs: 'vm'
+			controllerAs: 'vmd'
 		})
 		
 
@@ -43,6 +43,11 @@ function config($routeProvider, $locationProvider, $httpProvider){
 			controller: 'NewCabController',
 			templateUrl: 'partials/cabNew.view.html',
 			controllerAs: 'vm'
+		})
+		.when('/developerHome', {
+			controller: 'DeveloperHomeController',
+			templateUrl: 'partials/developerHome.view.html',
+			controllerAs: 'vmd'
 		})
 
 		.otherwise({ redirectTo: '/' });
