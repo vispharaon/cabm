@@ -1,1 +1,41 @@
-<h1>Ovo je developer Home stranica<h1>
+<div class="container">
+	<div class="developerRegion" ng-show="isDeveloper">	
+	<span class="label label-info controlShadow">Developer</span><br />
+		<ul class="nav nav-pills borderMenuSize" role="tablist">
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/CABHomeDeveloper">Pregled CAB zahtjeva</a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/Development">Development <span class="label label-danger alignRight label-as-badge">3</span></a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/CABReturned">Vraceni CAB zahtjevi <span class="label label-success alignRight label-as-badge">0</span></a></li>
+			<li class="spaceHeight"> </li>
+		</ul>
+	</div>
+	<br />
+	<div class="developerRegion" ng-show="isTasker">	
+		<span class="label label-info controlShadow">Tasker</span><br />
+		<ul class="nav nav-pills borderMenuSize" role="tablist">
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/ActiveCABs">Aktivni CAB zahtjevi <span class="label label-success alignRight label-as-badge">0</span></a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/ChooseForTask">Biraj CAB za taskiranje <span class="label label-danger alignRight label-as-badge">5</span></a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/Tasking">Taskiraj <span class="label label-danger alignRight label-as-badge">1</span></a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/TaskingAdditional">Taskiranje dodatno <span class="label label-success alignRight label-as-badge">0</span></a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/CloseCAB">Zatvori CAB zahtjev <span class="label label-danger alignRight label-as-badge">2</span></a></li>
+		</ul>
+	</div>
+	<br />
+	<div class="developerRegion" ng-show="isAnalyzer">	
+		<span class="label label-info controlShadow">Voter/Analyzer</span><br />
+		<ul class="nav nav-pills borderMenuSize" role="tablist">
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/Vote">Vote CAB zahtjeva <span class="label label-danger alignRight label-as-badge">11</span></a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/Analyze">Radi analizu <span class="label label-success alignRight label-as-badge">0</span></a></li>
+			<li class="spaceHeight"> </li>
+			<li role="presentation" class="btn btn-default menuButtonDev"><a href="#/UAFSigned">Potpisan UAF <span class="label label-success alignRight label-as-badge">0</span></a></li>
+			<li class="spaceHeight"> </li>
+		</ul>
+	</div>
+	<br />
+</div>

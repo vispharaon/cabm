@@ -22,6 +22,7 @@
             console.log('..Amar');
             vmd.dataLoading = true;        
             vmd.password = '-';
+            console.log(vmd.username);
             AuthenticationService.LoginDeveloper(vmd.username, function (response, data) {
                 //console.log(response);
                 if (response == "200") {

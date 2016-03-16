@@ -49,7 +49,61 @@ function config($routeProvider, $locationProvider, $httpProvider){
 			templateUrl: 'partials/developerHome.view.html',
 			controllerAs: 'vmd'
 		})
-
+		.when('/CABHomeDeveloper', {
+			controller: 'CABHomeDeveloperController',
+			templateUrl: 'partials/cabHomeDeveloper.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/Development', {
+			controller: 'DevelopmentController',
+			templateUrl: 'partials/development.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/CABReturned', {
+			controller: 'CABReturnedController',
+			templateUrl: 'partials/cabReturned.view.html',
+			controllerAs: 'vmd'
+		})		
+		.when('/ActiveCABs', {
+			controller: 'ActiveCABsController',
+			templateUrl: 'partials/activeCABs.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/ChooseForTask', {			
+			controller: 'ChooseForTaskController',
+			templateUrl: 'partials/chooseForTask.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/Tasking', {
+			controller: 'TaskingController',
+			templateUrl: 'partials/tasking.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/TaskingAdditional', {
+			controller: 'TaskingAdditionalController',
+			templateUrl: 'partials/taskingAdditional.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/CloseCAB', {
+			controller: 'CloseCABController',
+			templateUrl: 'partials/closeCAB.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/Vote', {
+			controller: 'VoteController',
+			templateUrl: 'partials/vote.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/Analyze', {
+			controller: 'AnalyzeController',
+			templateUrl: 'partials/analyze.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/UAFSigned', {
+			controller: 'UAFSignedController',
+			templateUrl: 'partials/uafSigned.view.html',
+			controllerAs: 'vmd'
+		})
 		.otherwise({ redirectTo: '/' });
 }
 

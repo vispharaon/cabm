@@ -57,7 +57,7 @@
 
         function LoginDeveloper(username, callback) {
 
-            $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapis.azurewebsites.net/api/userDeveloper', params: { username: username }}).
+            $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapis.azurewebsites.net/api/userDeveloper', params: { id: username }}).
                        success(function (data, status, headers, config) {
                         console.log(data, status, headers, config);
                             callback(status, data);
