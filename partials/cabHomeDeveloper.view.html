@@ -1,1 +1,33 @@
-<h2>CAB Home Developer</h2>
+
+<div>
+<!--  Potrebno dodati nove tagove za tabelu-->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>CAB HD No</th>
+        <th style='width: 25%'>Naziv</th>
+        <th>Tip</th>
+        <th>Datum</th>        
+        <th>Posiljaoc</th>
+        <th>Prioritet</th>
+        <th>Odjel</th>
+        <th>Datum izmjene statusa</th>
+        <th>Status</th>        
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="cab in allCabs | limitTo: filterCABShow"  ng-click="openCharacterDetails()">
+        <td>{{cab.CAB_HD_No}}</td>
+        <td>{{cab.CAB_HD_Title}}</td>
+        <td>{{cab.CAB_Type}}</td>
+        <td>{{cab.CAB_HD_Date | date}}</td>
+        <td>{{cab.CAB_Sender}}</td>
+        <td>{{cab.CAB_Priority}}</td>
+        <td>{{cab.CAB_Department}}</td>        
+        <td>{{cab.StatusDate | date}}
+        <td style= 'font-weight:bold'>{{cab.StatusName}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br />
+</div>
