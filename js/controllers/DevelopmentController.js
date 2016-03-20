@@ -8,8 +8,7 @@ angular
     function DevelopmentController($location) {
         var vmd = this;
 
-        $(function() {
-    $( "#datepicker" ).datepicker();
+$(function() {    
 	$("#iShow").hide();
 	$("#infoNewDeveloper").hide();
 	$("#aBackToTaskTable").hide();

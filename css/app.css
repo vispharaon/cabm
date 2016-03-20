@@ -65,14 +65,19 @@
 	width: 100%;
 }
 
+//Where to go status
+.wtg{
+	background-color: #FFBF00;
+}
+
 td {
 	cursor: pointer;
 }
-
+/*
 fieldset {
 	border:1px solid green;	
  }
-
+*/
 fieldset input {
 	position: relative;
 	left: 50px;
@@ -82,14 +87,14 @@ fieldset select {
 	position: relative;
 	left: 50px;
 }
-
+/*
 legend {
   
   border:1px solid green;
   color:green;
   font-size:10px;
   text-align:left;
-  }
+  }*/
 
 label {
   float:left;

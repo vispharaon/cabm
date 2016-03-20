@@ -2,6 +2,8 @@
 
 app.factory('CabData',
 		function ($http, $log) {
+			this.selectedHomeCAB = [];
+
 			var serverName = "http://cabapis.azurewebsites.net";
 			var apiType = "/api/";
 			
@@ -28,22 +30,22 @@ app.factory('CabData',
 	                    
 	                   });
             	},
-            	getCabAPI: function (successcb) {
-                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'cab'}).
+            	getCabAPI: function (successcb, cabhdno) {
+
+                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'cab', params: { id: cabhdno }}).
                    success(function (data, status, headers, config) {
                        // this callback will be called asynchronously
                        // when the response is available
                        //successcb(data);
-                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;
-                       console.log(data[0].CAB_Department, data[0].CAB_HD_Date, data[0].CAB_HD_No, data[0].CAB_HD_Title, data[0].CAB_Id, 
-                        data[0].CAB_Note, data[0].CAB_Priority, data[0].CAB_Sender, data[0].CAB_Type, data[0].Developer_Comment);
+                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;                       
                        //$log.warn(data, status, headers, config);
-                        successcb(data[0]);
+                        successcb(data, cabhdno);
                        //return data[0];
                    }).
                    error(function (data, status, headers, config) {
                        // called asynchronously if an error occurs
                        // or server returns response with an error status.
+                       console.log(cabhdno);
                        console.log(data);
                        //$log.warn(data, status, headers, config);
                     

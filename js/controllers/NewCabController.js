@@ -6,6 +6,11 @@
 
     NewCabController.$inject = ['$scope', 'CabData'];
     function NewCabController($scope, CabData) {
+
+        $(function() {
+           $( ".datepicker" ).datepicker();
+        });
+
         var vm = this;
 
         vm.user = null;

@@ -53,11 +53,11 @@
 
         vm.selected = [];
         $scope.openCharacterDetails = function () {
-            vm.selected = this.session;
-            console.log('cabDetails.html/id=' + vm.selected);
+            CabData.selectedHomeCAB = this.cab;
+            console.log('cabDetails.html/id=' + CabData.selectedHomeCAB);
            // CabData.getDataForCABTest(); 
             window.location = '#/cabDetails';
-            console.log(vm.selected);
+            console.log(CabData.selectedHomeCAB);
         }
 
         $scope.openCabNewPage = function(){
