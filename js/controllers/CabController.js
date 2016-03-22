@@ -194,6 +194,12 @@
   	//Voting part
   	$scope.cabVoteDetails = CabData.cabVoteDetails;  	
   	$scope.votinglabel = "Voting";
+  	$scope.voteImageYesNo = function(){
+			  var yesOrNo = $scope.cabImages.buttonYes;
+			  //if(status...) yesOrNo = yesorno;
+
+			  return yesOrNo;
+			};
 
   	/*$scope.voteClick = function () {
 		if($scope.showVoting==true)
@@ -205,7 +211,12 @@
 	//Analyze part
 	$scope.analyzelabel = "Analiza";
 	$scope.cabAnalyzeDetails = CabData.cabAnalyzeDetails;
-
+	$scope.analyzeImageYesNo = function(){
+			  var yesOrNo = $scope.cabImages.buttonNo;
+			  //if(status...) yesOrNo = yesorno;
+			  return yesOrNo;
+			};
+			
 	/*$scope.analyzeClick = function () {
 	    if($scope.showAnalysis==true)
 	        $scope.showAnalysis=false;
@@ -217,6 +228,11 @@
 	//Tasking part
 	$scope.taskinglabel = "Taskiranje"
 	$scope.cabTaskingDetails = CabData.cabTaskingDetails;
+	$scope.taskingImageYesNo = function(){
+			  var yesOrNo = $scope.cabImages.buttonNo;
+			  //if(status...) yesOrNo = yesorno;
+			  return yesOrNo;
+			};
 
 	/*$scope.taskingClick = function () {
 	    if($scope.showTasking==true)
@@ -228,6 +244,11 @@
 	//Code Review
 	$scope.codeReviewlabel = "Code review";
 	$scope.cabCodeReviewDetails = CabData.cabCodeReviewDetails;
+	$scope.codereviewImageYesNo = function(){
+			  var yesOrNo = $scope.cabImages.buttonYes;
+			  //if(status...) yesOrNo = yesorno;
+			  return yesOrNo;
+			};
 
 	/*$scope.codereviewClick = function () {
 	    if($scope.showCodeReview==true)
@@ -238,6 +259,11 @@
 
 	$scope.unitTestlabel = 'Unit test';
 	$scope.cabUnitTestDetails = CabData.cabUnitTestDetails;
+	$scope.unittestImageYesNo = function(){
+			  var yesOrNo = $scope.cabImages.buttonYes;
+			  //if(status...) yesOrNo = yesorno;
+			  return yesOrNo;
+			};
 
 	/*$scope.unittestClick = function () {
 	    if($scope.showUnitTest==true)
@@ -248,6 +274,11 @@
 
 	$scope.testinglabel = "Testiranje";
 	$scope.cabTestingDetails = CabData.cabTestingDetails;
+	$scope.testingImageYesNo = function(){
+			  var yesOrNo = $scope.cabImages.buttonYes;
+			  //if(status...) yesOrNo = yesorno;
+			  return yesOrNo;
+			};
 
 	/*$scope.testingClick = function () {
 	    if($scope.showTesting==true)
@@ -258,14 +289,19 @@
 
 	$scope.developinglabel = "Developing";
 	$scope.cabDevelopingDetails = CabData.cabDevelopingDetails;
-
+	$scope.developingImageYesNo = function(){
+			  var yesOrNo = $scope.cabImages.buttonYes;
+			  //if(status...) yesOrNo = yesorno;
+			  return yesOrNo;
+			};
+			
 	/*$scope.developingClick = function () {
 	    if($scope.showDeveloping==true)
 	        $scope.showDeveloping=false;
 	    else
 	        $scope.showDeveloping=true;
 	  };*/
-	  
+
 		$scope.getCABTypes = function () {
 		    var  res = [];    
 		    
@@ -304,55 +340,12 @@
 		     return res;
 		  }; 
 
-		  	$scope.showVoting = false;
+		  	/*$scope.showVoting = false;
 			$scope.showAnalysis = false;
 			$scope.showTasking = false;
 			$scope.showCodeReview = false;
 			$scope.showUnitTest = false;
 			$scope.showTesting = false;
-			$scope.showDeveloping = false;
-
-			$scope.voteImageYesNo = function(){
-			  var yesOrNo = $scope.cabImages.buttonYes;
-			  //if(status...) yesOrNo = yesorno;
-
-			  return yesOrNo;
-			};
-
-			$scope.analyzeImageYesNo = function(){
-			  var yesOrNo = $scope.cabImages.buttonNo;
-			  //if(status...) yesOrNo = yesorno;
-			  return yesOrNo;
-			};
-
-			$scope.taskingImageYesNo = function(){
-			  var yesOrNo = $scope.cabImages.buttonNo;
-			  //if(status...) yesOrNo = yesorno;
-			  return yesOrNo;
-			};
-
-			$scope.codereviewImageYesNo = function(){
-			  var yesOrNo = $scope.cabImages.buttonYes;
-			  //if(status...) yesOrNo = yesorno;
-			  return yesOrNo;
-			};
-
-			$scope.unittestImageYesNo = function(){
-			  var yesOrNo = $scope.cabImages.buttonYes;
-			  //if(status...) yesOrNo = yesorno;
-			  return yesOrNo;
-			};
-
-			$scope.testingImageYesNo = function(){
-			  var yesOrNo = $scope.cabImages.buttonYes;
-			  //if(status...) yesOrNo = yesorno;
-			  return yesOrNo;
-			};
-
-			$scope.developingImageYesNo = function(){
-			  var yesOrNo = $scope.cabImages.buttonYes;
-			  //if(status...) yesOrNo = yesorno;
-			  return yesOrNo;
-			};
+			$scope.showDeveloping = false; */
     }
 
