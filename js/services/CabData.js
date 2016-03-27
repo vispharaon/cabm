@@ -129,6 +129,50 @@ app.factory('CabData',
 	                       //$log.warn(data, status, headers, config);
 	                    
 	                   });
+            		},
+            		saveCABToWTG: function(id){
+            				console.log(serverName + apiType + 'cab');
+		                $http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABVoting', params: { id: id }}).
+		                   success(function (data, status, headers, config) {
+		                       // this callback will be called asynchronously
+		                       // when the response is available
+		                       //successcb(data);
+		                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;
+		                       //console.log(data[0].lokacija, data[0].namjesten, data[0].brojSoba, data[0].telefon, data[0].email, 
+		                        //data[0].cijena, data[0].dodatnoOpis, data[0].grijanje, data[0].balkon, data[0].kucaZgrada);
+		                       //$log.warn(data, status, headers, config);
+		                        //stanovi(data);
+		                       //return data[0];
+		                       console.log('success');	                       
+		                       console.log(status);
+		                       window.location = '#/';
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		getVoteData: function(callback){
+            			$http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABVoting' }).
+	                    	success(function (data, status, headers, config) {
+	                   	    console.log("success CABVoting " + data);
+	                        callback(data);	                       
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
             		}
 		            /*,		            
 		            getAllStanovi: function(stanovi){

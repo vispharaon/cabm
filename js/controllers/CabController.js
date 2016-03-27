@@ -7,6 +7,9 @@
     CabController.$inject = ['$rootScope', '$scope', 'CabData'];
     function CabController($rootScope, $scope, CabData) {
 
+    if(typeof CabData.selectedHomeCAB !== "undefined")
+   		$scope.cab = CabData.selectedHomeCAB;
+
     $(function() {    
     	//CAB Details
 		$("#iShow").hide();
@@ -165,10 +168,11 @@
 			$("#infoDevelopingEmpty").show();
 	    });
 	});
-  
+  	
+  	console.log("CAB hd no: " + $scope.cab.CAB_HD_No);
+
     var vm = this;
-    vm.selectedCAB = CabData.selectedHomeCAB;
-    $scope.id = vm.selectedCAB.CAB_HD_No;
+    $scope.id = $scope.cab.CAB_HD_No;
 
 	//Details CAB variables
   	$scope.detailsCABlabel = 'Detalji CAB zahtjeva';
@@ -189,6 +193,10 @@
   		if($scope.cabMainDetails.StatusName == 'Received')
   			return true;
   		return false;
+  	}
+
+  	$scope.sendWTG = function(){
+  		CabData.saveCABToWTG($scope.id);    
   	}
 
   	//Voting part
