@@ -173,6 +173,26 @@ app.factory('CabData',
 	                       //$log.warn(data, status, headers, config);
 	                    
 	                   });
+            		},
+            		saveVotingDone: function(id, cabDateFrom, cabDateTo, voter){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABVoting', params: { id: id, datefrom: cabDateFrom, dateto: cabDateTo, voter: voter }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);
+		                       window.location = '#/development';
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
             		}
 		            /*,		            
 		            getAllStanovi: function(stanovi){

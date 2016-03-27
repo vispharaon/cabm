@@ -4,8 +4,8 @@ angular
         .module('app')
         .controller('VoteController', VoteController);
 
-    VoteController.$inject = ['$location', 'CabData', '$scope'];
-    function VoteController($location, CabData, $scope) {
+    VoteController.$inject = ['$location', 'CabData', '$scope', '$cookieStore'];
+    function VoteController($location, CabData, $scope, $cookieStore) {
         var vmd = this;
 		
 		CabData.getVoteData(function(callback){
@@ -19,7 +19,7 @@ angular
 				$("#infoNewDeveloper").hide();
 				$("#aBackToTaskTable").hide();
 				$("#divTaskInfo").hide();
-				
+				$(".datepicker").datepicker();
 			  });
 			  
 				$(document).ready(function(){
@@ -62,5 +62,17 @@ angular
 					});
 			});	
 		}); //angular.document.ready
+		
+		//$scope.selectedCAB = [];
+
+		$scope.selectCAB = function(){
+			$scope.selectedCAB = this.vote;
+			console.log($scope.selectedCAB);
+		}
+
+		$scope.saveCAB = function(){
+			console.log($scope.cabDateFrom);
+			CabData.saveVotingDone($scope.selectedCAB.CAB_HD_No, $scope.cabDateFrom, $scope.cabDateTo, $cookieStore.get('globals').currentUser.username);
+		}
     
     }

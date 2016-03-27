@@ -20,7 +20,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="cab in allCabs | limitTo: filterCABShow"  ng-click="openCharacterDetails()">
+      <tr ng-repeat="cab in allCabs | limitTo: filterCABShow | orderBy: 'StatusDate': true"  ng-click="openCharacterDetails()">
         <td>{{cab.CAB_HD_No}}</td>
         <td>{{cab.CAB_HD_Title}}</td>
         <td>{{cab.CAB_Type}}</td>
