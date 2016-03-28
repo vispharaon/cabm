@@ -87,11 +87,11 @@
 			<div>				
 				<span id="infoVotingEmpty" class="form-control">					
 					<i id="iHideVoting" class="glyphicon glyphicon-menu-down"></i>		
-					<img  style='float: right' ng-src='{{voteImageYesNo()}}' height="25" width="25" />		
+					<img  style='float: right' ng-src='{{voteImageYesNo}}' height="25" width="25" />		
 				</span>
 				<span id="infoVoting" class="form-control">					
 					<i id="iShowVoting" class="glyphicon glyphicon-menu-right"></i>
-					<img  style='float: right' ng-src='{{voteImageYesNo()}}' height="25" width="25" />
+					<img  style='float: right' ng-src='{{voteImageYesNo}}' height="25" width="25" />
 					{{votinglabel}}				
 				</span>
 			</div>
@@ -113,7 +113,15 @@
 				<div class="form-group">
 					<label>Datum Vote-a:</label>
 					<input type="text" class="form-control width30" placeholder="Datum" ng-model="cabVoteDetails.votedate"></input>
-				</div>							
+				</div>
+				<div class="form-group">
+					<label>Datum za analizu od:</label>
+					<input type="text" class="form-control width30" placeholder="Datum analize od" ng-model="cabVoteDetails.votedatefrom"></input>
+				</div>
+				<div class="form-group">
+					<label>Datum za analizu do:</label>
+					<input type="text" class="form-control width30" placeholder="Datum analize do" ng-model="cabVoteDetails.votedateto"></input>
+				</div>
 			</form>
 		</div>
 
@@ -122,11 +130,11 @@
 			<div>				
 				<span id="infoAnalyzeEmpty" class="form-control">					
 					<i id="iHideAnalyze" class="glyphicon glyphicon-menu-down"></i>
-					<img style='float: right' ng-src='{{taskingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{analyzeImageYesNo}}' height="25" width="25" />
 				</span>
 				<span id="infoAnalyze" class="form-control">					
 					<i id="iShowAnalyze" class="glyphicon glyphicon-menu-right"></i>
-					<img style='float: right' ng-src='{{taskingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{analyzeImageYesNo}}' height="25" width="25" />
 					{{analyzelabel}}
 				</span>
 			</div>
@@ -157,11 +165,11 @@
 			<div>				
 				<span id="infoTaskingEmpty" class="form-control">					
 					<i id="iHideTasking" class="glyphicon glyphicon-menu-down"></i>
-					<img style='float: right' ng-src='{{taskingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{taskingImageYesNo}}' height="25" width="25" />
 				</span>
 				<span id="infoTasking" class="form-control">					
 					<i id="iShowTasking" class="glyphicon glyphicon-menu-right"></i>
-					<img style='float: right' ng-src='{{taskingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{taskingImageYesNo}}' height="25" width="25" />
 					{{taskinglabel}}
 				</span>
 			</div>
@@ -200,11 +208,11 @@
 			<div>				
 				<span id="infoCodeReviewEmpty" class="form-control">					
 					<i id="iHideCodeReview" class="glyphicon glyphicon-menu-down"></i>
-					<img style='float: right' ng-src='{{codereviewImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{codeReviewImageYesNo}}' height="25" width="25" />
 				</span>
 				<span id="infoCodeReview" class="form-control">					
 					<i id="iShowCodeReview" class="glyphicon glyphicon-menu-right"></i>
-					<img style='float: right' ng-src='{{codereviewImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{codeReviewImageYesNo}}' height="25" width="25" />
 					{{codeReviewlabel}}
 				</span>
 			</div>
@@ -231,11 +239,11 @@
 			<div>				
 				<span id="infoUnitTestEmpty" class="form-control">					
 					<i id="iHideUnitTest" class="glyphicon glyphicon-menu-down"></i>
-					<img style='float: right' ng-src='{{unittestImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{unitTestImageYesNo}}' height="25" width="25" />
 				</span>
 				<span id="infoUnitTest" class="form-control">					
 					<i id="iShowUnitTest" class="glyphicon glyphicon-menu-right"></i>
-					<img style='float: right' ng-src='{{unittestImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{unitTestImageYesNo}}' height="25" width="25" />
 					{{unitTestlabel}}
 				</span>
 			</div>
@@ -264,11 +272,11 @@
 			<div>				
 				<span id="infoTestingEmpty" class="form-control">					
 					<i id="iHideTesting" class="glyphicon glyphicon-menu-down"></i>
-					<img style='float: right' ng-src='{{testingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{testingImageYesNo}}' height="25" width="25" />
 				</span>
 				<span id="infoTesting" class="form-control">					
 					<i id="iShowTesting" class="glyphicon glyphicon-menu-right"></i>
-					<img style='float: right' ng-src='{{testingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{testingImageYesNo}}' height="25" width="25" />
 					{{testinglabel}}
 				</span>
 			</div>
@@ -319,11 +327,11 @@
 			<div>				
 				<span id="infoDevelopingEmpty" class="form-control">					
 					<i id="iHideDeveloping" class="glyphicon glyphicon-menu-down"></i>
-					<img style='float: right' ng-src='{{developingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{developingImageYesNo}}' height="25" width="25" />
 				</span>
 				<span id="infoDeveloping" class="form-control">					
 					<i id="iShowDeveloping" class="glyphicon glyphicon-menu-right"></i>
-					<img style='float: right' ng-src='{{developingImageYesNo()}}' height="25" width="25" />
+					<img style='float: right' ng-src='{{developingImageYesNo}}' height="25" width="25" />
 					{{developinglabel}}
 				</span>
 			</div>

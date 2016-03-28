@@ -50,35 +50,91 @@ app.factory('CabData',
                        //$log.warn(data, status, headers, config);
                     
                    });},
-                   cabVoteDetails: {
+                   /*cabVoteDetails: {
 		                votename:'',
 		                votelastname: '',
 		                votedate: ''
-		            },
-		            cabAnalyzeDetails: {
+		            },*/
+                   getCabVoteDetails: function (successcb, cabhdno) {
+
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'cabvoting', params: { id: cabhdno }}).
+	                   success(function (data, status, headers, config) {
+	                        successcb(data, cabhdno);
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                    
+	                   });
+	                },                   
+		            /*cabAnalyzeDetails: {
 		                analyzename:'',
 		                analyzelastname: '',
 		                analyzepredictedwh: '',
 		                analyzenote: ''
-		            },
-		            cabTaskingDetails: {
+		            },*/
+		            getCabAnalyzeDetails: function (successcb, cabhdno) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABAnalysis', params: { id: cabhdno }}).
+	                   success(function (data, status, headers, config) {
+	                        successcb(data, cabhdno);
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                    
+	                   });
+	                },
+	                /*cabTaskingDetails: {
 		                taskingname:'',
 		                taskinglastname:'',
 		                taskinghours:0,
 		                taskingnooftask:0
-		            },
-		            cabCodeReviewDetails: {
+		            },*/
+	                getCabTaskingDetails: function (successcb, cabhdno) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABTaska', params: { id: cabhdno }}).
+	                   success(function (data, status, headers, config) {
+	                        successcb(data, cabhdno);
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                    
+	                   });
+	                },		            
+		            /*cabCodeReviewDetails: {
 		                codereviewdone: true,
 		                codereviewtasker: ''
-		            },
-		            cabUnitTestDetails: {
+		            },*/
+		            getCabCodeReviewDetails: function (successcb, cabhdno) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABCodeReview', params: { id: cabhdno }}).
+	                   success(function (data, status, headers, config) {
+	                        successcb(data, cabhdno);
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                    
+	                   });
+	                },
+		            /*cabUnitTestDetails: {
 		                unittestdone: true,
 		                unittestdevelopers: [
 		                    {name: 'Amar Hajro'},
 		                    {name: 'Suljo Suljić'}
 		              ]
-		            },
-		            cabTestingDetails: {
+		            },*/
+		            getCabUnitTestDetails: function (successcb, cabhdno) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'Developers', params: { id: cabhdno }}).
+	                   success(function (data, status, headers, config) {
+	                        successcb(data, cabhdno);
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                    
+	                   });
+	                },
+		            /*cabTestingDetails: {
 		                qavalidationdone: true,
 		                qavalidationdate: '17.04.2015',
 		                qatestingdone: true,
@@ -91,15 +147,37 @@ app.factory('CabData',
 		                    {testingname: 'Amar Hajro', testingcomment: 'Ovo je komentar na testni slucaj 1. Testiranje će biti završeno kada bude sve ok!', dateofcomment: '17.04.2015'},
 		                    {testingname: 'Amar Hajro', testingcomment: 'Ovo je komentar na testni slucaj 1. Testiranje će biti završeno kada bude sve ok!', dateofcomment: '17.04.2015'}
 		                ]
-		            },
-		            cabDevelopingDetails: {
+		            },*/
+		            getCabTestingDetails: function (successcb, cabhdno) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABTesting', params: { id: cabhdno }}).
+	                   success(function (data, status, headers, config) {
+	                        successcb(data, cabhdno);
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                    
+	                   });
+	                },
+		            /*cabDevelopingDetails: {
 		              tasks: [
 		                {taskname: 'Testni task 1', taskdeveloper: 'Amar Hajro', taskstatus: 'Scheduled', tasklastchange: '17.04.2015' },
 		                {taskname: 'Testni task 1', taskdeveloper: 'Amar Hajro', taskstatus: 'Developing 10%', tasklastchange: '17.04.2015' },
 		                {taskname: 'Testni task 1', taskdeveloper: 'Amar Hajro', taskstatus: 'Development Done', tasklastchange: '17.04.2015' },
 		                {taskname: 'Testni task 2', taskdeveloper: 'Amar Hajro', taskstatus: 'Scheduled', tasklastchange: '17.04.2015' }    
 		              ]
-		            },
+		            },*/
+		            getCabDevelopingDetails: function (successcb, cabhdno) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'TaskHistory', params: { id: cabhdno }}).
+	                   success(function (data, status, headers, config) {
+	                        successcb(data, cabhdno);
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                    
+	                   });
+	                },
 		            saveNewCAB: function(cab){
 		            	console.log(serverName + apiType + 'cab');
 	                $http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'cab', data: JSON.stringify(cab), headers: {'Content-Type': "application/json"} }).
