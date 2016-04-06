@@ -271,7 +271,21 @@ app.factory('CabData',
 		                       //$log.warn(data, status, headers, config);
 		                    
 		                   });
-            		}
+            		},
+            		getAnalyzeData: function(callback){
+            			$http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABAnalysis' }).
+	                    	success(function (data, status, headers, config) {
+	                   	    console.log("success CABAnalysis " + data);
+	                        callback(data);	                       
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+            		},
 		            /*,		            
 		            getAllStanovi: function(stanovi){
 	                $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapi.somee.com/api/stan' }).

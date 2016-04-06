@@ -1,1 +1,78 @@
-Analiza
+
+<div class="container">
+	<a class="btn btn-default" href="#">Home</a>
+	<a class="btn btn-default" id="aBackToTaskTable" href="#/Vote">Vrati na listu CAB-ova</a>	
+</div>
+<br />
+<div class="container" id="divTasksTable">
+	
+	<table id="jqTable">
+		<thead>
+			<tr>
+				<th>CAB HD No</th>
+				<th>CAB Naziv</th>
+				<th>Tip</th>
+				<th>Datum</th>
+				<th>Pošiljaoc</th>
+				<th>Prioritet</th>
+				<th>Odjel</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+
+		<tfoot>
+			<tr>
+				<th>CAB HD No</th>
+				<th>CAB Naziv</th>
+				<th>Tip</th>
+				<th>Datum</th>
+				<th>Pošiljaoc</th>
+				<th>Prioritet</th>
+				<th>Odjel</th>
+				<th>Status</th>
+			</tr>
+		</tfoot>
+
+		<tbody id="tbodyTasksTableItem">
+			<tr ng-repeat="analyze in cabAnalysisDetails" ng-click="selectCAB()">
+				<td>{{analyze.CAB_HD_No}}</td>
+				<td>{{analyze.CAB_HD_Title}}</td>
+				<td>{{analyze.CAB_Type}}</td>
+				<td>{{analyze.CAB_HD_Date}}</td>
+				<td>{{analyze.CAB_Sender}}</td>
+				<td>{{analyze.CAB_Priority}}</td>
+				<td>{{analyze.CAB_Department}}</td>
+				<td>{{analyze.StatusName}}</td>
+			</tr>			
+		</tbody>
+	</table>
+</div>
+<div class="container" id="divTaskInfo">
+	<div>
+		<div>
+			<p class="bg-info fontWeightBold">Naziv CAB zahtjeva</p>
+			<p>{{selectedCAB.CAB_HD_Title}}</p>					
+			<p class="bg-info fontWeightBold">Attachmenti za CAB zahtjeva</p>
+			<a href="#">CAB HD 1 - Testni attachment</a><br />
+		</div>
+		<br />
+		<div class="row divBorder">
+			<p class="bg-info fontWeightBold">Podaci analiziranog CAB-a</p>
+			<form>
+				<div class="form-group">					
+					<input type="text" class="form-control width30" placeholder="PREDVIĐENI SATI ZA CAB" ng-model="cabPredictedWH"></input><br />
+				</div>	
+				<div class="form-group">					
+					<input type="text" class="form-control width30" placeholder="NAPOMENA" ng-model="analyzeDescription"></input><br />
+				</div>
+				<div class="form-group">					
+					<input type="file" class="form-control width30" placeholder="FILE ZA UPLOAD" ng-model="fileForUpload"></input><br />
+				</div>	
+				<div class="form-group">
+					<input  class="btn btn-primary" type="button" value="Završi analizu" ng-click="saveCAB()"></input>
+				</div>
+			</form>
+		</div>
+	</br>	
+</div>				
+</div> 
