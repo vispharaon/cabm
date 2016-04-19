@@ -104,6 +104,21 @@ function config($routeProvider, $locationProvider, $httpProvider){
 			templateUrl: 'partials/uafSigned.view.html',
 			controllerAs: 'vmd'
 		})
+		.when('/QAValidation', {
+			controller: 'QAValidationController',
+			templateUrl: 'partials/qavalidation.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/QATesting', {
+			controller: 'QATestingController',
+			templateUrl: 'partials/qatesting.view.html',
+			controllerAs: 'vmd'
+		})
+		.when('/Resource', {
+			controller: 'ResourceController',
+			templateUrl: 'partials/resource.view.html',
+			controllerAs: 'vm'
+		})
 		.otherwise({ redirectTo: '/' });
 }
 

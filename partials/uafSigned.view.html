@@ -1,1 +1,64 @@
-UAF potpisan
+
+<div class="container">
+	<a class="btn btn-default" href="#/developerHome">Home</a>
+	<a class="btn btn-default" id="aBackToTaskTable" href="#/UAFSigned">Vrati na listu CAB-ova</a>	
+</div>
+<br />
+<div class="container" id="divTasksTable">
+	
+	<table id="jqTable">
+		<thead>
+			<tr>
+				<th>CAB HD No</th>
+				<th>CAB Naziv</th>
+				<th>Tip</th>
+				<th>Datum</th>
+				<th>Pošiljaoc</th>
+				<th>Prioritet</th>
+				<th>Odjel</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+
+		<tfoot>
+			<tr>
+				<th>CAB HD No</th>
+				<th>CAB Naziv</th>
+				<th>Tip</th>
+				<th>Datum</th>
+				<th>Pošiljaoc</th>
+				<th>Prioritet</th>
+				<th>Odjel</th>
+				<th>Status</th>
+			</tr>
+		</tfoot>
+
+		<tbody id="tbodyTasksTableItem">
+			<tr ng-repeat="uaf in uafSignedCABs" ng-click="selectCAB()">
+				<td>{{uaf.CAB_HD_No}}</td>
+				<td>{{uaf.CAB_HD_Title}}</td>
+				<td>{{uaf.CAB_Type}}</td>
+				<td>{{uaf.CAB_HD_Date}}</td>
+				<td>{{uaf.CAB_Sender}}</td>
+				<td>{{uaf.CAB_Priority}}</td>
+				<td>{{uaf.CAB_Department}}</td>
+				<td>{{uaf.StatusName}}</td>
+			</tr>			
+		</tbody>
+	</table>
+</div>
+<div class="container" id="divTaskInfo">
+	<div>		
+		<br />
+		<div class="row divBorder">
+			<p class="bg-info fontWeightBold">Podaci analiziranog CAB-a</p>
+			<form>
+				<input type="checkbox" ng-model="checked" ng-click="check()">UAF potpisan - pošalji CAB na produkciju</input>
+				<div class="form-group">
+					<input  class="btn btn-primary" type="button" value="QA testiranje uspješno završeno" ng-click="saveUAFSignedSuccess()" ng-disabled="unchecked"></input>
+				</div>
+			</form>
+		</div>
+	</br>	
+</div>				
+</div> 

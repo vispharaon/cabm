@@ -4,8 +4,8 @@
         .module('app')
         .controller('CabController', CabController);
 
-    CabController.$inject = ['$rootScope', '$scope', 'CabData'];
-    function CabController($rootScope, $scope, CabData) {
+    CabController.$inject = ['$rootScope', '$scope', 'CabData', '$timeout'];
+    function CabController($rootScope, $scope, CabData, $timeout) {
 
     if(typeof CabData.selectedHomeCAB !== "undefined")
    		$scope.cab = CabData.selectedHomeCAB;
@@ -46,129 +46,6 @@
 		$( ".datepicker" ).datepicker();
   	});
 
-  	$(document).ready(function(){
-  		//CAB Details
-	    $("#iHide").click(function(){
-	        $("#formShowHide").hide(500);
-			$("#iShow").show();
-			$("#iHide").hide();
-			$("#infoCABDetails").show();
-			$("#infoCABDetailsEmpty").hide();
-	    });		
-		$("#iShow").click(function(){
-	        $("#formShowHide").show(500);
-			$("#iShow").hide();
-			$("#iHide").show();
-			$("#infoCABDetails").hide();
-			$("#infoCABDetailsEmpty").show();
-	    });
-	    //Voting
-	    $("#iHideVoting").click(function(){
-	        $("#formShowHideVoting").hide(500);
-			$("#iShowVoting").show();
-			$("#iHideVoting").hide();
-			$("#infoVoting").show();
-			$("#infoVotingEmpty").hide();
-	    });		
-		$("#iShowVoting").click(function(){
-	        $("#formShowHideVoting").show(500);
-			$("#iShowVoting").hide();
-			$("#iHideVoting").show();
-			$("#infoVoting").hide();
-			$("#infoVotingEmpty").show();
-	    });
-	    //Analyze
-	    $("#iHideAnalyze").click(function(){
-	        $("#formShowHideAnalyze").hide(500);
-			$("#iShowAnalyze").show();
-			$("#iHideAnalyze").hide();
-			$("#infoAnalyze").show();
-			$("#infoAnalyzeEmpty").hide();
-	    });		
-		$("#iShowAnalyze").click(function(){
-	        $("#formShowHideAnalyze").show(500);
-			$("#iShowAnalyze").hide();
-			$("#iHideAnalyze").show();
-			$("#infoAnalyze").hide();
-			$("#infoAnalyzeEmpty").show();
-	    });
-	    //Tasking
-	    $("#iHideTasking").click(function(){
-	        $("#formShowHideTasking").hide(500);
-			$("#iShowTasking").show();
-			$("#iHideTasking").hide();
-			$("#infoTasking").show();
-			$("#infoTaskingEmpty").hide();
-	    });		
-		$("#iShowTasking").click(function(){
-	        $("#formShowHideTasking").show(500);
-			$("#iShowTasking").hide();
-			$("#iHideTasking").show();
-			$("#infoTasking").hide();
-			$("#infoTaskingEmpty").show();
-	    });
-	    //CodeReview
-	    $("#iHideCodeReview").click(function(){
-	        $("#formShowHideCodeReview").hide(500);
-			$("#iShowCodeReview").show();
-			$("#iHideCodeReview").hide();
-			$("#infoCodeReview").show();
-			$("#infoCodeReviewEmpty").hide();
-	    });		
-		$("#iShowCodeReview").click(function(){
-	        $("#formShowHideCodeReview").show(500);
-			$("#iShowCodeReview").hide();
-			$("#iHideCodeReview").show();
-			$("#infoCodeReview").hide();
-			$("#infoCodeReviewEmpty").show();
-	    });
-	    //UnitTest
-	    $("#iHideUnitTest").click(function(){
-	        $("#formShowHideUnitTest").hide(500);
-			$("#iShowUnitTest").show();
-			$("#iHideUnitTest").hide();
-			$("#infoUnitTest").show();
-			$("#infoUnitTestEmpty").hide();
-	    });		
-		$("#iShowUnitTest").click(function(){
-	        $("#formShowHideUnitTest").show(500);
-			$("#iShowUnitTest").hide();
-			$("#iHideUnitTest").show();
-			$("#infoUnitTest").hide();
-			$("#infoUnitTestEmpty").show();
-	    });
-	    //Testing
-	    $("#iHideTesting").click(function(){
-	        $("#formShowHideTesting").hide(500);
-			$("#iShowTesting").show();
-			$("#iHideTesting").hide();
-			$("#infoTesting").show();
-			$("#infoTestingEmpty").hide();
-	    });		
-		$("#iShowTesting").click(function(){
-	        $("#formShowHideTesting").show(500);
-			$("#iShowTesting").hide();
-			$("#iHideTesting").show();
-			$("#infoTesting").hide();
-			$("#infoTestingEmpty").show();
-	    });
-	    //Developing
-	    $("#iHideDeveloping").click(function(){
-	        $("#formShowHideDeveloping").hide(500);
-			$("#iShowDeveloping").show();
-			$("#iHideDeveloping").hide();
-			$("#infoDeveloping").show();
-			$("#infoDevelopingEmpty").hide();
-	    });		
-		$("#iShowDeveloping").click(function(){
-	        $("#formShowHideDeveloping").show(500);
-			$("#iShowDeveloping").hide();
-			$("#iHideDeveloping").show();
-			$("#infoDeveloping").hide();
-			$("#infoDevelopingEmpty").show();
-	    });
-	});
-  	
   	console.log("CAB hd no: " + $scope.cab.CAB_HD_No);
 
     var vm = this;
@@ -186,15 +63,14 @@
 	    altButtonYes: '',
 	    buttonNo: 'img/round-no-button.png',
 	    altButtonNo: '',
-	};
+	};	
+
+	$scope.openResourcePage = function(){
+		CabData.selectedHomeCAB = $scope.cabMainDetails;
+		window.location = '#/Resource';
+	}
 
   	//Where to go logics
-  	$scope.wtgButtonShow = function(){
-  		if($scope.cabMainDetails.StatusName == 'Received')
-  			return true;
-  		return false;
-  	}
-
   	$scope.sendWTG = function(){
   		CabData.saveCABToWTG($scope.id);    
   	}
@@ -410,5 +286,142 @@
 			$scope.showUnitTest = false;
 			$scope.showTesting = false;
 			$scope.showDeveloping = false; */
+
+			  	$(document).ready(function(){
+  		//CAB Details
+	    $("#iHide").click(function(){
+	        $("#formShowHide").hide(500);
+			$("#iShow").show();
+			$("#iHide").hide();
+			$("#infoCABDetails").show();
+			$("#infoCABDetailsEmpty").hide();
+	    });		
+		$("#iShow").click(function(){
+	        $("#formShowHide").show(500);
+			$("#iShow").hide();
+			$("#iHide").show();
+			$("#infoCABDetails").hide();
+			$("#infoCABDetailsEmpty").show();
+	    });
+	    //Voting
+	    $("#iHideVoting").click(function(){
+	        $("#formShowHideVoting").hide(500);
+			$("#iShowVoting").show();
+			$("#iHideVoting").hide();
+			$("#infoVoting").show();
+			$("#infoVotingEmpty").hide();
+	    });		
+		$("#iShowVoting").click(function(){
+	        $("#formShowHideVoting").show(500);
+			$("#iShowVoting").hide();
+			$("#iHideVoting").show();
+			$("#infoVoting").hide();
+			$("#infoVotingEmpty").show();
+	    });
+	    //Analyze
+	    $("#iHideAnalyze").click(function(){
+	        $("#formShowHideAnalyze").hide(500);
+			$("#iShowAnalyze").show();
+			$("#iHideAnalyze").hide();
+			$("#infoAnalyze").show();
+			$("#infoAnalyzeEmpty").hide();
+	    });		
+		$("#iShowAnalyze").click(function(){
+	        $("#formShowHideAnalyze").show(500);
+			$("#iShowAnalyze").hide();
+			$("#iHideAnalyze").show();
+			$("#infoAnalyze").hide();
+			$("#infoAnalyzeEmpty").show();
+	    });
+	    //Tasking
+	    $("#iHideTasking").click(function(){
+	        $("#formShowHideTasking").hide(500);
+			$("#iShowTasking").show();
+			$("#iHideTasking").hide();
+			$("#infoTasking").show();
+			$("#infoTaskingEmpty").hide();
+	    });		
+		$("#iShowTasking").click(function(){
+	        $("#formShowHideTasking").show(500);
+			$("#iShowTasking").hide();
+			$("#iHideTasking").show();
+			$("#infoTasking").hide();
+			$("#infoTaskingEmpty").show();
+	    });
+	    //CodeReview
+	    $("#iHideCodeReview").click(function(){
+	        $("#formShowHideCodeReview").hide(500);
+			$("#iShowCodeReview").show();
+			$("#iHideCodeReview").hide();
+			$("#infoCodeReview").show();
+			$("#infoCodeReviewEmpty").hide();
+	    });		
+		$("#iShowCodeReview").click(function(){
+	        $("#formShowHideCodeReview").show(500);
+			$("#iShowCodeReview").hide();
+			$("#iHideCodeReview").show();
+			$("#infoCodeReview").hide();
+			$("#infoCodeReviewEmpty").show();
+	    });
+	    //UnitTest
+	    $("#iHideUnitTest").click(function(){
+	        $("#formShowHideUnitTest").hide(500);
+			$("#iShowUnitTest").show();
+			$("#iHideUnitTest").hide();
+			$("#infoUnitTest").show();
+			$("#infoUnitTestEmpty").hide();
+	    });		
+		$("#iShowUnitTest").click(function(){
+	        $("#formShowHideUnitTest").show(500);
+			$("#iShowUnitTest").hide();
+			$("#iHideUnitTest").show();
+			$("#infoUnitTest").hide();
+			$("#infoUnitTestEmpty").show();
+	    });
+	    //Testing
+	    $("#iHideTesting").click(function(){
+	        $("#formShowHideTesting").hide(500);
+			$("#iShowTesting").show();
+			$("#iHideTesting").hide();
+			$("#infoTesting").show();
+			$("#infoTestingEmpty").hide();
+	    });		
+		$("#iShowTesting").click(function(){
+	        $("#formShowHideTesting").show(500);
+			$("#iShowTesting").hide();
+			$("#iHideTesting").show();
+			$("#infoTesting").hide();
+			$("#infoTestingEmpty").show();
+	    });
+	    //Developing
+	    $("#iHideDeveloping").click(function(){
+	        $("#formShowHideDeveloping").hide(500);
+			$("#iShowDeveloping").show();
+			$("#iHideDeveloping").hide();
+			$("#infoDeveloping").show();
+			$("#infoDevelopingEmpty").hide();
+	    });		
+		$("#iShowDeveloping").click(function(){
+	        $("#formShowHideDeveloping").show(500);
+			$("#iShowDeveloping").hide();
+			$("#iHideDeveloping").show();
+			$("#infoDeveloping").hide();
+			$("#infoDevelopingEmpty").show();
+	    });
+
+	    $scope.showResourcesBtn = function(){
+	    	if(angular.isUndefined($scope.cabMainDetails)) return false;
+			if($scope.cabMainDetails.StatusName == "Waiting for Resources")
+				return true;
+			return false;
+		}
+
+	  	$scope.wtgButtonShow = function(){
+	  		if(angular.isUndefined($scope.cabMainDetails)) return false;
+	  		if($scope.cabMainDetails.StatusName == 'Received')
+	  			return true;
+	  		return false;
+	  	}
+	});
     }
 

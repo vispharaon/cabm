@@ -1,7 +1,7 @@
 
 <div class="container">
-	<a class="btn btn-default" href="#">Home</a>
-	<a class="btn btn-default" id="aBackToTaskTable" href="#/QAValidation">Vrati na listu CAB-ova</a>	
+	<a class="btn btn-default" href="#/developerHome">Home</a>
+	<a class="btn btn-default" id="aBackToTaskTable" href="#/QATesting">Vrati na listu CAB-ova</a>	
 </div>
 <br />
 <div class="container" id="divTasksTable">
@@ -34,15 +34,15 @@
 		</tfoot>
 
 		<tbody id="tbodyTasksTableItem">
-			<tr ng-repeat="forTasking in forTaskingDetails" ng-click="selectCAB()">
-				<td>{{forTasking.CAB_HD_No}}</td>
-				<td>{{forTasking.CAB_HD_Title}}</td>
-				<td>{{forTasking.CAB_Type}}</td>
-				<td>{{forTasking.CAB_HD_Date}}</td>
-				<td>{{forTasking.CAB_Sender}}</td>
-				<td>{{forTasking.CAB_Priority}}</td>
-				<td>{{forTasking.CAB_Department}}</td>
-				<td>{{forTasking.StatusName}}</td>
+			<tr ng-repeat="test in testingList" ng-click="selectCAB()">
+				<td>{{test.CAB_HD_No}}</td>
+				<td>{{test.CAB_HD_Title}}</td>
+				<td>{{test.CAB_Type}}</td>
+				<td>{{test.CAB_HD_Date}}</td>
+				<td>{{test.CAB_Sender}}</td>
+				<td>{{test.CAB_Priority}}</td>
+				<td>{{test.CAB_Department}}</td>
+				<td>{{test.StatusName}}</td>
 			</tr>			
 		</tbody>
 	</table>
@@ -59,8 +59,10 @@
 		<div class="row divBorder">
 			<p class="bg-info fontWeightBold">Podaci analiziranog CAB-a</p>
 			<form>
+				<input type="checkbox" ng-model="checked" ng-click="check()">Testiranje uspješno završeno</input>
 				<div class="form-group">
-					<input  class="btn btn-primary" type="button" value="Preuzmi za taskiranje" ng-click="saveCAB()"></input>					
+					<input  class="btn btn-primary" type="button" value="QA testiranje uspješno završeno" ng-click="saveQASuccess()" ng-disabled="unchecked"></input>
+					<input  class="btn btn-warning" type="button" value="QA testiranje nije uspješno" ng-click="saveDeclinedCAB()"></input>
 				</div>
 			</form>
 		</div>

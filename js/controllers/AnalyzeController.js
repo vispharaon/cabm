@@ -68,11 +68,20 @@ angular
 		$scope.selectCAB = function(){
 			$scope.selectedCAB = this.analyze;
 			console.log($scope.selectedCAB);
-			//if(status = 'Waiting for Analysis')
-			//save(status u history na 5)
+			console.log($scope.selectedCAB.StatusName);
+			if($scope.selectedCAB.StatusName == 'Waiting for Analysis')
+			{
+				CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 5);
+			}
 		}
 
 		$scope.saveCAB = function(){			
 			console.log("current user: " + $cookieStore.get('globals').currentUser.username);
 			CabData.saveAnalyzeDone($scope.selectedCAB.CAB_HD_No, $scope.cabPredictedWH, $scope.analyzeDescription, $cookieStore.get('globals').currentUser.username);
-		}    }
+		}
+
+		$scope.saveDeclinedCAB = function(){			
+			CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 4);
+			window.location = '#/development';
+		}
+}

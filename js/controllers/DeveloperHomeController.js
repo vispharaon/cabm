@@ -11,4 +11,5 @@
         $scope.isDeveloper = true;
         $scope.isTasker = true;
         $scope.isAnalyzer = true;
+        $scope.isTester = true;
     }

@@ -1,15 +1,14 @@
 'use strict';
 
-angular
+    angular
         .module('app')
-        .controller('UAFSignedController', UAFSignedController);
+        .controller('QATestingController', QATestingController);
 
-    UAFSignedController.$inject = ['UserService', '$rootScope', '$scope', 'CabData'];
-    function UAFSignedController(UserService, $rootScope, $scope, CabData) {
+    QATestingController.$inject = ['UserService', '$rootScope', '$scope', 'CabData'];
+    function QATestingController(UserService, $rootScope, $scope, CabData) {
         var vmd = this;
-
-        CabData.getUAFSignedData(function(callback){
-            $scope.uafSignedCABs = callback;
+        CabData.getQATestingData(function(callback){
+            $scope.testingList = callback;
         }); 
 
         $scope.unchecked = true;
@@ -71,14 +70,32 @@ angular
         }
 
         $scope.selectCAB = function(){
-            $scope.selectedCAB = this.uaf;
+            $scope.selectedCAB = this.test;
             console.log($scope.selectedCAB);
             console.log($scope.selectedCAB.StatusName);
+            if($scope.selectedCAB.StatusName == 'Code Review')
+            {
+                CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 26);
+            }
         }
 
- 		$scope.saveUAFSignedSuccess = function(){
- 			CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 29);
+        $scope.saveDeclinedCAB = function(){
+        	window.location = "#/developerHome";
+        }
+
+ 		$scope.saveQASuccess = function(){
+ 			CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 28);
  			window.location="#/developerHome";
  		}
 
+
+        /*$scope.saveCAB = function(){            
+            console.log("current user: " + $cookieStore.get('globals').currentUser.username);
+            CabData.saveQAValidationDone($scope.selectedCAB.CAB_HD_No, $scope.qaValidationDescription, $cookieStore.get('globals').currentUser.username);
+        }
+
+        $scope.saveDeclinedCAB = function(){            
+            CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 5);
+            window.location = '#/DeveloperHome';
+        }*/
     }

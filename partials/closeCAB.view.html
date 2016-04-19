@@ -1,1 +1,64 @@
-Zatvori CAB
+
+<div class="container">
+	<a class="btn btn-default" href="#/developerHome">Home</a>
+	<a class="btn btn-default" id="aBackToTaskTable" href="#/UAFSigned">Vrati na listu CAB-ova</a>	
+</div>
+<br />
+<div class="container" id="divTasksTable">
+	
+	<table id="jqTable">
+		<thead>
+			<tr>
+				<th>CAB HD No</th>
+				<th>CAB Naziv</th>
+				<th>Tip</th>
+				<th>Datum</th>
+				<th>Pošiljaoc</th>
+				<th>Prioritet</th>
+				<th>Odjel</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+
+		<tfoot>
+			<tr>
+				<th>CAB HD No</th>
+				<th>CAB Naziv</th>
+				<th>Tip</th>
+				<th>Datum</th>
+				<th>Pošiljaoc</th>
+				<th>Prioritet</th>
+				<th>Odjel</th>
+				<th>Status</th>
+			</tr>
+		</tfoot>
+
+		<tbody id="tbodyTasksTableItem">
+			<tr ng-repeat="close in closing" ng-click="selectCAB()">
+				<td>{{close.CAB_HD_No}}</td>
+				<td>{{close.CAB_HD_Title}}</td>
+				<td>{{close.CAB_Type}}</td>
+				<td>{{close.CAB_HD_Date}}</td>
+				<td>{{close.CAB_Sender}}</td>
+				<td>{{close.CAB_Priority}}</td>
+				<td>{{close.CAB_Department}}</td>
+				<td>{{close.StatusName}}</td>
+			</tr>			
+		</tbody>
+	</table>
+</div>
+<div class="container" id="divTaskInfo">
+	<div>		
+		<br />
+		<div class="row divBorder">
+			<p class="bg-info fontWeightBold">Podaci CAB-a</p>
+			<form>
+				<input type="checkbox" ng-model="checked" ng-click="check()">Završena implementacija CAB zahtjeva - CAB spreman za zatvaranje</input>
+				<div class="form-group">
+					<input  class="btn btn-primary" type="button" value="Zatvori CAB" ng-click="saveCloseCAB()" ng-disabled="unchecked"></input>
+				</div>
+			</form>
+		</div>
+	</br>	
+</div>				
+</div> 

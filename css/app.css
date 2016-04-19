@@ -2,6 +2,10 @@
     width: 30%;
 }
 
+.width10{
+	width: 10%;
+}
+
 .divBorder{
 	border-radius: 25px;
     border: 2px solid #157DEC;
@@ -68,6 +72,10 @@
 //Where to go status
 .wtg{
 	background-color: #FFBF00;
+}
+
+.resourceDivs{
+	display: inline-block;	
 }
 
 td {

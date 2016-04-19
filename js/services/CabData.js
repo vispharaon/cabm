@@ -286,6 +286,328 @@ app.factory('CabData',
 	                    
 	                   });
             		},
+            		//unfortunate name :)
+            		saveAnalyzeStatus: function(id, status){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABAnalysis', params: { id: id, status: status }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);
+		                       //window.location = '#/development';
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		saveAnalyzeDone: function(id, predictedWH, analyzeDescription, username){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABAnalysis', params: { id: id, predictedWH: predictedWH, analyzeDescription: analyzeDescription, username: username }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);
+		                       window.location = '#/developerHome';
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		getQAValidationData: function(callback){
+            			$http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'QAValidation' }).
+	                    	success(function (data, status, headers, config) {
+	                   	    console.log(serverName + apiType + 'QAValidation');
+	                   	    console.log(data);
+	                        callback(data);	                       
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+            		},
+            		saveQAValidationDone: function(id, qaValidationDescription, username){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'QAValidation', params: { id: id, qaValidationDescription: qaValidationDescription, username: username }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);
+		                       window.location = '#/developerHome';
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		getForTaskingData: function(callback){
+            			$http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABForTasking' }).
+	                    	success(function (data, status, headers, config) {
+	                   	    console.log("success CABAnalysis " + data);
+	                        callback(data);	                       
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+            		},
+            		saveForTaskingDone: function(id, username){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABForTasking', params: { id: id, username: username }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);
+		                       window.location = '#/developerHome';
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		getTaskingData: function(callback){
+            			$http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABTaska' }).
+	                    	success(function (data, status, headers, config) {
+	                   	    console.log(data);
+	                        callback(data);	                       
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+            		},
+            		getAllTasksData: function (successcb, cabhdno) {
+
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABTaska', params: { id: cabhdno, isTasking: true }}).
+	                   success(function (data, status, headers, config) {
+	                       // this callback will be called asynchronously
+	                       // when the response is available
+	                       //successcb(data);
+	                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;                       
+	                       //$log.warn(data, status, headers, config);
+	                        successcb(data, cabhdno);
+	                       //return data[0];
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+	               },
+            		updateTask: function(CAB_Task_Id, CabHD_No_Task, CAB_Task_Text, WorkingHours, Task_Text){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABTaska', params: { CAB_Task_Id: CAB_Task_Id, CabHD_No_Task: CabHD_No_Task, CAB_Task_Text: CAB_Task_Text, WorkingHours: WorkingHours, Task_Text: Task_Text }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);		                       
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		newTask: function(id, CabHD_No_Task, CAB_Task_Text, WorkingHours, Task_Text, username){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABTaska', params: {id: id, CabHD_No_Task: CabHD_No_Task, CAB_Task_Text: CAB_Task_Text, WorkingHours: WorkingHours, Task_Text: Task_Text, username: username}}).
+		                   success(function (data, status, headers, config) {		                                             
+		                       console.log(status);		                       
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		getDevelopers: function (successcb, cabhdno) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'Developers'}).
+	                   success(function (data, status, headers, config) {
+	                       // this callback will be called asynchronously
+	                       // when the response is available
+	                       //successcb(data);
+	                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;                       
+	                       //$log.warn(data, status, headers, config);
+	                        successcb(data, cabhdno);
+	                       //return data[0];
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(cabhdno);
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+	                },
+            		saveResourceAssignment: function(developerId, id){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'CABTaska', params: { developerId: developerId, id: id }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);		                       
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		getDevelopmentTasks: function (successcb, developerId) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'TaskHistory', params: { developerId: developerId, getTasks: true }}).
+	                   success(function (data, status, headers, config) {
+	                       // this callback will be called asynchronously
+	                       // when the response is available
+	                       //successcb(data);
+	                       console.log(data);
+	                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;                       
+	                       //$log.warn(data, status, headers, config);
+	                        successcb(data);
+	                       //return data[0];
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+	                },
+	                saveTaskProgress: function(CAB_Task_Id, Percentage, checkedCodeReview){
+            			$http({ method: 'POST', dataType: 'jsonp', url: serverName + apiType + 'TaskHistory', params: { CAB_Task_Id: CAB_Task_Id, Percentage: Percentage, checkedCodeReview: checkedCodeReview }}).
+		                   success(function (data, status, headers, config) {		                       
+		                       console.log('success');	                       
+		                       console.log(status);		                       
+		                       return status;
+		                   }).
+		                   error(function (data, status, headers, config) {
+		                       // called asynchronously if an error occurs
+		                       // or server returns response with an error status.
+		                       console.log(data);
+		                       console.log(status);
+		                       console.log(headers);
+		                       console.log(config);
+		                       return status;
+		                       //$log.warn(data, status, headers, config);
+		                    
+		                   });
+            		},
+            		getQATestingData: function (successcb) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'CABTesting' }).
+	                   success(function (data, status, headers, config) {
+	                       // this callback will be called asynchronously
+	                       // when the response is available
+	                       //successcb(data);
+	                       console.log(data);
+	                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;                       
+	                       //$log.warn(data, status, headers, config);
+	                        successcb(data);
+	                       //return data[0];
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+	                },
+	                getUAFSignedData: function (successcb) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'UAFSigned' }).
+	                   success(function (data, status, headers, config) {
+	                       // this callback will be called asynchronously
+	                       // when the response is available
+	                       //successcb(data);
+	                       console.log(data);
+	                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;                       
+	                       //$log.warn(data, status, headers, config);
+	                        successcb(data);
+	                       //return data[0];
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+	                },
+	                getProductionDeploymentData: function (successcb) {
+	                $http({ method: 'GET', dataType: 'jsonp', url: serverName + apiType + 'ProductionDeployment' }).
+	                   success(function (data, status, headers, config) {
+	                       // this callback will be called asynchronously
+	                       // when the response is available
+	                       //successcb(data);
+	                       console.log(data);
+	                       //cabMainDetails.cabhdno = data[0].CAB_HD_No;                       
+	                       //$log.warn(data, status, headers, config);
+	                        successcb(data);
+	                       //return data[0];
+	                   }).
+	                   error(function (data, status, headers, config) {
+	                       // called asynchronously if an error occurs
+	                       // or server returns response with an error status.
+	                       console.log(data);
+	                       //$log.warn(data, status, headers, config);
+	                    
+	                   });
+	                }	                
+	                   //updateTask($scope.allTasks[i].CAB_Task_Id, $scope.allTasks[i].CabHD_No_Task, $scope.allTasks[i].CAB_Task_Text, $scope.allTasks[i].WorkingHours, $scope.allTasks[i].Task_Text);
+
 		            /*,		            
 		            getAllStanovi: function(stanovi){
 	                $http({ method: 'GET', dataType: 'jsonp', url: 'http://cabapi.somee.com/api/stan' }).

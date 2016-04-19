@@ -1,19 +1,18 @@
 'use strict';
 
-angular
+    angular
         .module('app')
-        .controller('UAFSignedController', UAFSignedController);
+        .controller('QAValidationController', QAValidationController);
 
-    UAFSignedController.$inject = ['UserService', '$rootScope', '$scope', 'CabData'];
-    function UAFSignedController(UserService, $rootScope, $scope, CabData) {
+    QAValidationController.$inject = ['UserService', '$rootScope', '$scope', 'CabData', '$cookieStore'];
+    function QAValidationController(UserService, $rootScope, $scope, CabData, $cookieStore) {
         var vmd = this;
 
-        CabData.getUAFSignedData(function(callback){
-            $scope.uafSignedCABs = callback;
+        CabData.getQAValidationData(function(callback){
+            $scope.qaValidationDetails = callback;
         }); 
 
-        $scope.unchecked = true;
-        
+
         angular.element(document).ready(function () {
             $(function() {    
                 $("#iShow").hide();
@@ -66,19 +65,23 @@ angular
         
         //$scope.selectedCAB = [];
 
-        $scope.check = function(){
-        	$scope.unchecked = !$scope.checked;
-        }
-
         $scope.selectCAB = function(){
-            $scope.selectedCAB = this.uaf;
+            $scope.selectedCAB = this.validation;
             console.log($scope.selectedCAB);
             console.log($scope.selectedCAB.StatusName);
+            if($scope.selectedCAB.StatusName == 'Waiting for QA Validation')
+            {
+                CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 7);
+            }
         }
 
- 		$scope.saveUAFSignedSuccess = function(){
- 			CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 29);
- 			window.location="#/developerHome";
- 		}
+        $scope.saveCAB = function(){            
+            console.log("current user: " + $cookieStore.get('globals').currentUser.username);
+            CabData.saveQAValidationDone($scope.selectedCAB.CAB_HD_No, $scope.qaValidationDescription, $cookieStore.get('globals').currentUser.username);
+        }
 
+        $scope.saveDeclinedCAB = function(){            
+            CabData.saveAnalyzeStatus($scope.selectedCAB.CAB_HD_No, 5);
+            window.location = '#/DeveloperHome';
+        }
     }

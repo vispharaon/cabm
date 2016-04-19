@@ -1,7 +1,7 @@
 
 <div class="container">
 	<a class="btn btn-default" href="#">Home</a>
-	<a class="btn btn-default" id="aBackToTaskTable" href="#/Vote">Vrati na listu CAB-ova</a>	
+	<a class="btn btn-default" id="aBackToTaskTable" href="#/Analyze">Vrati na listu CAB-ova</a>	
 </div>
 <br />
 <div class="container" id="divTasksTable">
@@ -60,16 +60,17 @@
 			<p class="bg-info fontWeightBold">Podaci analiziranog CAB-a</p>
 			<form>
 				<div class="form-group">					
-					<input type="text" class="form-control width30" placeholder="PREDVIĐENI SATI ZA CAB" ng-model="cabPredictedWH"></input><br />
+					<input type="text" class="form-control width30" placeholder="PREDVIĐENI SATI ZA CAB" ng-model="cabPredictedWH" required></input><br />
 				</div>	
 				<div class="form-group">					
-					<input type="text" class="form-control width30" placeholder="NAPOMENA" ng-model="analyzeDescription"></input><br />
+					<input type="text" class="form-control width30" placeholder="NAPOMENA" ng-model="analyzeDescription" required></input><br />
 				</div>
 				<div class="form-group">					
 					<input type="file" class="form-control width30" placeholder="FILE ZA UPLOAD" ng-model="fileForUpload"></input><br />
 				</div>	
 				<div class="form-group">
 					<input  class="btn btn-primary" type="button" value="Završi analizu" ng-click="saveCAB()"></input>
+					<input  class="btn btn-warning" type="button" value="Odbij CAB" ng-click="saveDeclinedCAB()"></input>
 				</div>
 			</form>
 		</div>

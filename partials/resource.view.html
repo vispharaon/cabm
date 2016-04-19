@@ -1,0 +1,14 @@
+<div>
+	Raspoređivanje developera na CAB {{cab.CAB_HD_No}} - {{cab.CAB_HD_Title}}<br /><br />
+	<form>
+		<input type="text" class="form-control width30 datepicker" placeholder="Development od"></input>	
+		<input type="text" class="form-control width30 datepicker" placeholder="Development do"></input>
+
+		<br>
+
+		<select class="form-control width30" ng-model="selectedDeveloper" ng-options="val.Ime + ' ' + val.Prezime for val in developers" ng-change="developerClicked()"><option value="">Select</option></select>
+		<br><br>
+
+		<input  class="btn btn-primary" type="button" value="Dodijeli developera na ovaj CAB" ng-click="assignDeveloper()"></input>
+	</form>
+</div>
