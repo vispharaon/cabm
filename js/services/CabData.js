@@ -257,7 +257,7 @@ app.factory('CabData',
 		                   success(function (data, status, headers, config) {		                       
 		                       console.log('success');	                       
 		                       console.log(status);
-		                       window.location = '#/development';
+		                       window.location = '#/developerHome';
 		                       return status;
 		                   }).
 		                   error(function (data, status, headers, config) {
